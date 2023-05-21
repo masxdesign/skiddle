@@ -6,11 +6,12 @@ import classNames from "classnames"
 import { isEmpty } from "lodash"
 import { useEffect, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
-import { Link, useParams } from "react-router-dom"
+import { Link, useLocation, useParams } from "react-router-dom"
 import fetchEventDetailsAsync from "services/fetchEventDetailsAsync"
 import isColorLight from "utils/isColorLight"
 
 const EventDetailsPage = () => {
+    const location = useLocation()
     const { eventId } = useParams()
 
     const [data, setData] = useState({})
@@ -124,7 +125,7 @@ const EventDetailsPage = () => {
                         {results.artists.length > 0 && (
                             <div className="bg-light p-3 border rounded">
                                 <h3 className="h6 mb-4">Artists</h3>
-                                <ArtistsList list={results.artists} />
+                                <ArtistsList list={results.artists} keyword={location.state?.keyword} />
                             </div>
                         )}
                     </Col>

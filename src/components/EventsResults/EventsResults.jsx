@@ -10,8 +10,6 @@ const EventsResults = ({ variant = "Grid", keyword, totalcount, pagecount, resul
 
     const ViewComponent = views[variant]
 
-    console.log(results);
-
     return (
         isFullLoading && isLoading ? (
             <ViewComponent isLoading={isLoading} pagecount={pagecount} />

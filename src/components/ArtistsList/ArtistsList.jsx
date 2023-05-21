@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
-const ArtistsList = ({ list }) => (
+const ArtistsList = ({ list, keyword }) => (
     list.map(({ artistid, image, name }) => (
-        <Link key={artistid} to={`/artist/${artistid}`} className="d-flex align-items-center mb-3">
+        <Link key={artistid} to={`/artist/${artistid}`} state={{ keyword }} className="d-flex align-items-center mb-3">
             <div 
                 style={{
                     backgroundImage: `url(${image})`,

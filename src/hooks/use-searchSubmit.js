@@ -20,8 +20,6 @@ const useSearchSubmit = ({ pathname = "/events/search", onChange } = {}) => {
 
     const keyword = useMemo(() => currQuery.get("keyword") ?? location.state?.keyword ?? "", [currQuery])
 
-    console.log(keyword, location);
-
     return {
         onSearch,
         keyword

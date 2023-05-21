@@ -38,3 +38,11 @@ export const fetchSkiddleEventDetailsAsync = async (eventId) => {
     return data
 
 }
+
+export const fetchSkiddleArtistDetailsAsync = async (artistId) => {
+
+    const { data } = await skiddleV1Api.get(`/artist/${artistId}`, { params: { api_key } })
+
+    return data
+
+}
