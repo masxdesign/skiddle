@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skiddle</title>
     <script>
-        const path = window.location.pathname.slice(1);
-        localStorage.setItem('path', path);
+        localStorage.setItem('path', JSON.stringify({
+            pathname: window.location.pathname.replace('/skiddle', ''),
+            search: window.location.search
+        }));
         window.location.href='../';
     </script>
 </head>
