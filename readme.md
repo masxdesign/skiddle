@@ -1,7 +1,7 @@
 # Technical Task - React Developer Role
 Demo: 
 * https://masxdesign.github.io/skiddle
-* https://masxdesign.com/skiddle/artist/123519994
+* https://masxdesign.com/skiddle
 
 ### Following functionalities are implemented:
 * Search page which allows users to search for events by keyword,
