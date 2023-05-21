@@ -1,13 +1,24 @@
 /* The following block can be included in a custom.scss */
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 /* make the customizations */
-$theme-colors: (
+$custom-colors: (
     "danger": #ff2938,
     "warning": orange,
     "primary": #45c1be,
     "secondary": #183e8b,
     "dark": #121212
 );
+
+.btn-outline-primary:hover {
+    color: white!important
+}
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
 
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap";

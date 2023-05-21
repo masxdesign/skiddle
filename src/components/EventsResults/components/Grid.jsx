@@ -13,7 +13,7 @@ const Grid = ({ results, isLoading, pagecount = 8, keyword }) => (
         <Row>
             {results?.map((item) => (
                 <GridItemCol key={item._id}>
-                    <Link to={`/event/${item.id}`} state={{ keyword }}>
+                    <Link to={`/event/${item.id}`} state={{ keyword }} className="text-decoration-none">
                         <GridItem data={item} />
                     </Link>
                 </GridItemCol>

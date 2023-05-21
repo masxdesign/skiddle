@@ -21,7 +21,7 @@ const GridItem = ({ data }) => (
             />
         )}
         <div className="d-flex flex-column p-3" style={{ height: 240 }}>
-            <h2 className="h5 mb-2">
+            <h2 className="h5 mb-2 text-dark">
                 {data?.eventname ?? (
                     <Placeholder as="span" animation="glow">
                         <Placeholder xs={12} />
