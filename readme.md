@@ -1,7 +1,9 @@
-# Preview project on Github Pages
+# Skiddle tech test
+
+## Preview project on Github Pages
 https://masxdesign.github.io/skiddle
 
-# Build
+## Build
 ```bash
 npm run build
 ```
