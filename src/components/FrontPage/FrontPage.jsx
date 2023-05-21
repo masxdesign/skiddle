@@ -1,9 +1,9 @@
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { Col, Container, Row } from "react-bootstrap"
 import FormikSearch from "@/FormikSearch/FormikSearch"
 import Logo from "@/Logo/Logo"
 import useSearchSubmit from "@hooks/use-searchSubmit"
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
 
 const RedirectFixGitHubPagesSPA = () => {
     const navigate = useNavigate()
@@ -15,7 +15,7 @@ const RedirectFixGitHubPagesSPA = () => {
         if(path) {
             localStorage.removeItem('path')
             const location = JSON.parse(path)
-            navigate(location.pathname, { search: location.search })
+            navigate(location, { replace: true })
         }
     
     }, [])
