@@ -1,9 +1,4 @@
-# Skiddle tech test
+# Technical Task - React Developer Role
 
-## Preview project on Github Pages
+### View work on Github Pages
 https://masxdesign.github.io/skiddle
-
-## Build
-```bash
-npm run build
-```
