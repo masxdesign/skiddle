@@ -1,8 +1,9 @@
-import { Col, Container, Row, Spinner } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap"
 import useSearchSubmit from "@hooks/use-searchSubmit"
 import PageTopBar from "@/PageTopBar/PageTopBar"
 import { Outlet } from "react-router-dom"
 import { Suspense, useMemo } from "react"
+import Loading from "@/Loading/Loading"
 
 const MainPage = () => {
     const {
@@ -24,13 +25,7 @@ const MainPage = () => {
                 <Row>
                     <Col>
                         <div className="py-4">
-                            <Suspense 
-                                fallback={
-                                    <div className="text-center py-5">
-                                        <Spinner animation="border" variant="secondary" />
-                                    </div>
-                                }
-                            >
+                            <Suspense fallback={<Loading />}>
                                 <Outlet />
                             </Suspense>
                         </div>

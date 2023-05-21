@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 import './styles/index.scss'
 import MainPage from '@/MainPage/MainPage'
-import { Spinner } from 'react-bootstrap'
+import Loading from '@/Loading/Loading'
 
 const FrontPage = React.lazy(() => import('@/FrontPage/FrontPage.jsx'))
 const EventsPage = React.lazy(() => import('@/EventsPage/EventsPage'))
@@ -45,17 +45,11 @@ const router = createBrowserRouter([
       }
     ]
   },
-], { basename: "/skiddle" })
+], { basename: import.meta.env.VITE_ROUTER_BASE })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Suspense 
-      fallback={
-        <div className="text-center py-5">
-            <Spinner animation="border" variant="secondary" />
-        </div>
-      }
-    >
+    <Suspense fallback={<Loading />}>
       <RouterProvider router={router} />
     </Suspense>
   </React.StrictMode>,

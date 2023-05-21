@@ -1,5 +1,6 @@
-import { Button, Spinner } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import Grid from "./components/Grid"
+import Loading from "@/Loading/Loading"
 
 const views = {
     Grid
@@ -22,9 +23,7 @@ const EventsResults = ({ variant = "Grid", keyword, totalcount, pagecount, resul
                     <p>Please try another search.</p>
                 )}
                 {isLoading ? (
-                    <div className="text-center py-5">
-                        <Spinner animation="border" variant="secondary" />
-                    </div>    
+                    <Loading />   
                 ) : showMoreButton && totalcount > 0 && (
                     <Button variant="outline-secondary" size="lg" onClick={onShowMore} className="w-100 my-3">Show more</Button>
                 )}

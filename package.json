@@ -1,11 +1,12 @@
 {
-  "name": "my-vue-app",
+  "name": "skiddle",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/skiddle",
+    "build": "vite build",
+    "build:masxdesign": "vite build --base=/skiddle",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

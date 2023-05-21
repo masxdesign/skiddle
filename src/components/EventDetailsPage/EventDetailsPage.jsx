@@ -1,32 +1,14 @@
+import ArtistsList from "@/ArtistsList/ArtistsList"
+import InteractiveMap from "@/InteractiveMap/InteractiveMap"
+import Loading from "@/Loading/Loading"
 import { CalendarDaysIcon, ClockIcon, MapPinIcon, UserIcon } from "@heroicons/react/20/solid"
 import classNames from "classnames"
 import { isEmpty } from "lodash"
 import { useEffect, useState } from "react"
-import { Col, Container, Row, Spinner } from "react-bootstrap"
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet"
+import { Col, Container, Row } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import fetchEventDetailsAsync from "services/fetchEventDetailsAsync"
 import isColorLight from "utils/isColorLight"
-
-const ArtistsList = ({ list }) => (
-    list.map(({ artistid, image, name }) => (
-        <Link key={artistid} to={`/artist/${artistid}`} className="d-flex align-items-center mb-3">
-            <div 
-                style={{
-                    backgroundImage: `url(${image})`,
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                    width: 50,
-                    height: 50,
-                    borderRadius: 50
-                }}
-            />
-            <div className="w-75 px-3">
-                <h4 className="h6">{name}</h4>
-            </div>
-        </Link>
-    ))
-)
 
 const EventDetailsPage = () => {
     const { eventId } = useParams()
@@ -34,7 +16,6 @@ const EventDetailsPage = () => {
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
     
-
     useEffect(() => {
 
         const request = async () => {
@@ -53,12 +34,9 @@ const EventDetailsPage = () => {
     }, [])
 
     const { results } = data
-    const position = results?.venue ? [results.venue.latitude, results.venue.longitude]: null
 
     return loading ? (
-        <div className="text-center py-5">
-            <Spinner animation="border" variant="secondary" />
-        </div> 
+        <Loading />
     ) : (
         <>
             <p>
@@ -121,17 +99,11 @@ const EventDetailsPage = () => {
                             <div className="mb-4">
                                 <h2 className="h5">{results.venue.name}</h2>
                                 <div className="mb-4">
-                                    <MapContainer style={{ height: 300 }} center={position} zoom={13} scrollWheelZoom={false}>
-                                        <TileLayer
-                                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                        />
-                                        <Marker position={position}>
-                                            <Popup>
-                                                {results.venue.name}
-                                            </Popup>
-                                        </Marker>
-                                    </MapContainer>
+                                    <InteractiveMap 
+                                        position={[results.venue.latitude, results.venue.longitude]}
+                                        markerText={results.venue.name}
+                                        height={300}
+                                    />
                                 </div>
                                 <p>
                                     <u>{results.venue.name}</u><br/>
