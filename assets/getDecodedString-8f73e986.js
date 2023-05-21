@@ -1,0 +1,1 @@
+import{d as e,i as n,b as r}from"./isYesterday-ef5883a4.js";e.extend(n);e.extend(r);const Y=(d,t)=>{const s=e(d).format("dddd, MMMM D, YYYY"),a=e(t).format("dddd, MMMM D, YYYY");return s===a?s:`${s} - ${a}`},i=d=>{const t=document.createElement("textarea");return t.innerHTML=d,t.value};export{i as g,Y as p};
