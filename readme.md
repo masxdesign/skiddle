@@ -1,6 +1,7 @@
 # Technical Task - React Developer Role
 https://masxdesign.github.io/skiddle
 
+### Following functionalities are implemented:
 * Search page which allows users to search for events by keyword,
 * Event details page with more specific event information (including artists!),
     * Artists are clickable and will show more information on an artists detail page,
