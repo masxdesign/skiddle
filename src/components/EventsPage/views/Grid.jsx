@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap"
 import GridItem from "./GridItem"
 import { Link } from "react-router-dom"
+import TileProvider from "../components/TileProvider/TileProvider"
 
 const GridItemCol = ({ children }) => (
     <Col md={6} lg={4} xl={3} className="mb-3">
@@ -14,7 +15,7 @@ const Grid = ({ results, isLoading, pagecount = 8, keyword }) => (
             {results?.map((item) => (
                 <GridItemCol key={item._id}>
                     <Link to={`/event/${item.id}`} state={{ keyword }} className="text-decoration-none">
-                        <GridItem data={item} />
+                        <TileProvider component={GridItem} data={item} />
                     </Link>
                 </GridItemCol>
             ))}

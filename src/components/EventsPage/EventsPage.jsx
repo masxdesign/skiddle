@@ -1,7 +1,8 @@
 import useSearchSubmit from "@hooks/use-searchSubmit"
 import { useEffect, useState } from "react"
-import EventsResults from "@/EventsResults/EventsResults"
+import Listing from "@/EventsPage/components/Listing/Listing"
 import showMoreEventsAsync from "services/showMoreEventsAsync"
+import Grid from "./views/Grid"
 
 const initialData = { pagecount: 20, totalcount: 0, results: [] }
 
@@ -52,7 +53,8 @@ const EventsPage = () => {
             )}
             <h1>{keyword}</h1>
             <hr/>
-            <EventsResults 
+            <Listing 
+                viewComponent={Grid}
                 keyword={keyword}
                 totalcount={totalcount} 
                 pagecount={pagecount}
